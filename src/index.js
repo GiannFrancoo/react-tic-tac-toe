@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-// Componente Función
 function Square(props){
   return (
     <button className='square' onClick={props.onClick}>
@@ -59,7 +58,7 @@ class Game extends React.Component {
     }
   } 
 
-  handeClick(i){
+  handleClick(i){
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length-1];
     const squares = current.squares.slice();
@@ -68,8 +67,8 @@ class Game extends React.Component {
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
 
-    const [selectedRow, selectedCol] = getSquareSelected(i);   
-
+    const [selectedRow, selectedCol] = getSquareSelected(i); 
+  
     this.setState({
       history: history.concat([{
           squares: squares,
@@ -119,7 +118,7 @@ class Game extends React.Component {
         <div className="game-board">
           <Board 
             squares={ current.squares }
-            onClick={ (i) => this.handeClick(i) }
+            onClick={ (i) => this.handleClick(i) }
           />
         </div>
         <div className="game-info">
@@ -177,7 +176,6 @@ function getSquareSelected(i) {
       return[2,3];
   }
 }
-
 
 // ========================================
 
